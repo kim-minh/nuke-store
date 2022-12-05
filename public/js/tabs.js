@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     $(".tab-content .items li").each(function() {
         const id = $(this).find("span.id").text();
+        $(this).find(".image a img").attr("src", "css/images/" + id + ".png");
         getShoes(id)
         .then((data) => {
             const brandName = data[0].brand;
@@ -17,11 +18,15 @@ $(document).ready(function() {
             const price = data[0].price;
             $(this).find(".info").html("Brand name: <span>" + brandName + "</span><br />Shoe name: <span>" + shoeName + "</span><br />Edition: <span>" + edition + "</span>");
             $(this).find(".price").html("Wholesale Price: <strong>" + price + "</strong> <strong>USD</strong>");
-            const t = this;
-            $(this).find(".image a img").attr("src", "css/images/" + id + ".png");
+            const item = this;
 
+            const color = new Set();
             $(data).each(function() {
-                $(t).find(".color").append("<span>" + this.color + "</span>");
+                if (!color.has(this.color)) {
+                  color.add(this.color);
+                  $(item).find(".color").append("<span>" + this.color + "</span>");
+                }
+                $(item).find(".quantityInStock").text(this.quantityInStock);
             });
         })
     });
