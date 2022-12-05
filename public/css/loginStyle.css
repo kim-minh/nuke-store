@@ -108,6 +108,14 @@ div.logOutWindow {
     opacity: 0.8;
 }
 
+.logOutWindow .logOutPlace .action button.update {
+    width: auto;
+    margin: 0px;
+    padding: 10px 18px;
+    border-radius: 5px;
+    margin-left: 27%;
+}
+
 form.signUpWindow {
     border: 3px solid #f1f1f1;
     position: fixed;
