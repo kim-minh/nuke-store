@@ -16,7 +16,7 @@ $(document).ready(function() {
             const shoeName = data[0].name;
             const edition = data[0].edition;
             const price = data[0].price;
-            $(this).find(".info").html("Brand name: <span>" + brandName + "</span><br />Shoe name: <span>" + shoeName + "</span><br />Edition: <span>" + edition + "</span>");
+            $(this).find(".info").html("Name: <span>" + shoeName + "</span><br />Brand: <span>" + brandName + "</span><br />Edition: <span>" + edition + "</span>");
             $(this).find(".price").html("Wholesale Price: <strong>" + price + "</strong> <strong>USD</strong>");
             const item = this;
 

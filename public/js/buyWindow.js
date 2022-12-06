@@ -11,6 +11,8 @@ $(document).ready(function() {
         $(".buyingWindow .details .description").find("span").eq(1).text(shoeName);
         $(".buyingWindow .details .description").find("span").eq(2).text(edition);
         $(".buyingWindow .details .description").find("span").eq(3).text(price);
+        $(".buyingWindow .details .data").find("span.singlePrice").text(price);
+
         $(".buyingWindow .details .description div.quantity div.value").text(1)
         const id = $(this).find("div.data").children("span.id").text();
         $(".buyingWindow div.data span.id").text(id);
@@ -25,22 +27,22 @@ $(document).ready(function() {
     })
 
     $('.buyingWindow .details .description div.quantity div.minus').click(function() {
-        let price = Number($(".buyingWindow .details .description").find("span").eq(3).text());
-        let num = Number($(".buyingWindow .details .description div.quantity div.value").text());
-        if(num!=1) {
-            price = price-price/num;
-            num-=1;
+        let quantity = +$(".buyingWindow .details .description div.quantity div.value").text();
+        if(quantity !== 1) {
+            const singlePrice = +$(".buyingWindow .details .data").find("span.singlePrice").text();
+            --quantity;
+            const price = singlePrice * quantity;
             $(".buyingWindow .details .description").find("span").eq(3).text(price);
-            $(".buyingWindow .details .description div.quantity div.value").text(num);
+            $(".buyingWindow .details .description div.quantity div.value").text(quantity);
         };
     });
     $('.buyingWindow .details .description div.quantity div.plus').click(function() {
-        let price = Number($(".buyingWindow .details .description").find("span").eq(3).text());
-        let num = Number($(".buyingWindow .details .description div.quantity div.value").text());
-        price = price+price/num;
-        num+=1;
+        const singlePrice = +$(".buyingWindow .details .data").find("span.singlePrice").text();
+        let quantity = +$(".buyingWindow .details .description div.quantity div.value").text();
+        ++quantity;
+        const price = singlePrice * quantity;
         $(".buyingWindow .details .description").find("span").eq(3).text(price);
-        $(".buyingWindow .details .description div.quantity div.value").text(num);
+        $(".buyingWindow .details .description div.quantity div.value").text(quantity);
     });
 
     $(".buyingWindow .details .confirmButton button:nth-child("+ 2 +")").click(function() {

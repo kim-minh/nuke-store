@@ -27,31 +27,34 @@ $(document).ready(function() {
       })
 
       $('.minus').click(function() {
-        let num = Number($(this).siblings('div.value').eq(0).text());
-        if(num !== 1) {
+        let quantity = Number($(this).siblings('div.value').eq(0).text());
+        const index = $('.minus').index(this);
+        if(quantity !== 1) {
           let price = Number($(this).parents('tr').eq(0).find('span.price').text());
-          price -= price/num;
-          $(this).parents('tr').eq(0).find('span.price').text(''+price+'');
-          num -= 1;
-          data[$('.minus').index(this)].quantity = num;
-          $(this).siblings('div.value').eq(0).text(''+ num +'');
+          price = data[index].price * quantity;
+          $(this).parents('tr').eq(0).find('span.price').text(price);
+          --quantity;
+          data[index].quantity = quantity;
+          $(this).siblings('div.value').eq(0).text(quantity);
           updatePrice();
           checkStock();
         }
       });
 
     $('.plus').click(function() {
-      let num = Number($(this).siblings('div.value').eq(0).text());
+      let quantity = Number($(this).siblings('div.value').eq(0).text());
       const index = $('.plus').index(this);
       if (quantity < data[index].quantityInStock) {
         let price = Number($(this).parents('tr').eq(0).find('span.price').text());
-        price += price/num;
-        $(this).parents('tr').eq(0).find('span.price').text(''+price+'');
-        num += 1;
-        data[index].quantity = num;
-        $(this).siblings('div.value').eq(0).text(''+ num +'');
+        price = data[index].price * quantity;
+        $(this).parents('tr').eq(0).find('span.price').text(price);
+        ++quantity;
+        data[index].quantity = quantity;
+        $(this).siblings('div.value').eq(0).text(quantity);
         updatePrice();
         checkStock();
+      } else {
+        alert("Out of stock!");
       }
     });
     //nut confirm phai log in
