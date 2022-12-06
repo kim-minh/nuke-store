@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Nuke Store</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/checkOutArea.css" />
+<link rel="stylesheet" href="css/loginStyle.css" media="print" onload="this.media='all'" />
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script defer src="js/account.js" type="text/javascript"></script>
+<script defer src="js/checkOut.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Top -->
+<div id="top">
+    <div class="shell">
+      <!-- Header -->
+      <div id="header">
+        <h1 id="logo"><a href="index.html">Urban Gear</a></h1>
+        <div id="navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="account"><a id="account">My Account</a></li>
+            <li class="last"><a>Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Header -->
+      <!-- login Window-->
+    <form class="loginWindow" action="/login" method="post" style="display:none">
+      <div class="loginForm">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <button type="submit">Login</button>
+      </div>
+      <div class="action" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="signUp"><a>Sign up</a></span>
+      </div>
+    </form>
+    <!-- login Window-->
+    <!-- log out Window-->
+    <div class="logOutWindow" style="display: none">
+      <div class="logOutPlace">
+        <h3>You're already logged in</h3>
+        <div class="action">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <button type="button" class="update">Update</button>
+          <button class="logOut"><a>Log out</a></button>
+        </div>
+      </div>
+    </div>
+    <!-- log out Window-->    
+    <!--Sign up Window-->
+    <form class="signUpWindow" action="/register" method="post" style="display:none">
+      <div class="signUpForm">
+        <label class="username" for="username"><b>Username</b></label>
+        <input class="username" type="text" placeholder="Enter Username" name="username" required>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter your email" name="email" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="name" required>
+        <label for="phone"><b>Phone number</b></label>
+        <input type="number" placeholder="Enter your phone number" name="phone" required>
+        <label for="address"><b>Address</b></label>
+        <input type="text" placeholder="Enter your address" name="address" required>
+        <label for="credit"><b>Credit Number</b></label>
+        <input type="number" placeholder="Enter your credit number" name="credit" required>
+      </div>
+      <div class="action" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </form>
+    <!--Sign up Window-->
+    </div>
+  </div>
+  <!-- Top -->
+<!-- Main -->
+<div id="main" class="checkOut">
+    <div class="shell">
+        <!-- Check out area-->
+        <div class="checkOutArea">
+          <h3 class="title">Check Out</h3>
+          <div class="products">
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Product Info</th>
+                  <th>Price</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="confirmDetail">
+            <div class="information">
+              <h3>Your information</h3>
+              <h4 id="name">Name: <span></span></h4>
+              <h4 id="phone">Phone number: <span></span></h4>
+              <h4 id="address">Address: <span></span></h4>
+              <h4>Required date: </h4>
+              <input id="requiredDate" type="date" placeholder="When u want shoe?" name="reqDate" required>
+            </div>
+            <div class="total">
+              <p>Total: <span id="amount"></span> USD</p>
+              <button id="confirm">Confirm</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- Check out area-->
+        <!-- login Window-->
+    <form class="loginWindow" action="/login" method="post" style="display:none">
+      <div class="loginForm">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <button type="submit">Login</button>
+      </div>
+      <div class="action" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="signUp"><a>Sign up</a></span>
+      </div>
+    </form>
+    <!-- login Window-->
+    <!-- log out Window-->
+    <div class="logOutWindow" style="display: none">
+      <div class="logOutPlace">
+        <h3>You r logged in silly</h3>
+        <div class="action">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <button type="button" class="update">Update</button>
+          <button class="logOut"><a>Log out</a></button>
+        </div>
+      </div>
+    </div>
+    <!-- log out Window-->    
+    <!--Sign up Window-->
+    <form class="signUpWindow" action="/register" method="post" style="display:none">
+      <div class="signUpForm">
+        <label class="username" for="username"><b>Username</b></label>
+        <input class="username" type="text" placeholder="Enter Username" name="username" required>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter your email" name="email" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="name" required>
+        <label for="phone"><b>Phone number</b></label>
+        <input type="number" placeholder="Enter your phone number" name="phone" required>
+        <label for="address"><b>Address</b></label>
+        <input type="text" placeholder="Enter your address" name="address" required>
+        <label for="credit"><b>Credit Number</b></label>
+        <input type="number" placeholder="Enter your credit number" name="credit" required>
+      </div>
+      <div class="action" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </form>
+    <!--Sign up Window-->
+
+        <!-- Brands -->
+        <div class="brands">
+            <h3>Brands</h3>
+            <div class="logos"> <a><img src="css/images/logo1.gif" alt="" /></a> <a><img src="css/images/logo2.gif" alt="" /></a> <a><img src="css/images/logo3.gif" alt="" /></a> <a><img src="css/images/logo4.gif" alt="" /></a> <a><img src="css/images/logo5.gif" alt="" /></a> </div>
+          </div>
+          <!-- End Brands -->
+          <!-- Footer -->
+          <div id="footer">
+            <div class="left"> <a>Home</a> <span>|</span> <a>Support</a> <span>|</span> <a>My Account</a> <span>|</span> <a>The Store</a> <span>|</span> <a>Contact</a> </div>
+            <div class="right"> &copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a> </div>
+          </div>
+          <!-- End Footer -->
+    </div>
+</div>
+</body>
+</html>
