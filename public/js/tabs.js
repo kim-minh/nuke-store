@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     $(".tab-content .items li").each(function() {
         const id = $(this).find("span.id").text();
-        $(this).find(".image a img").attr("src", "css/images/" + id + ".png");
+        $(this).find(".image a img").attr("src", "images/" + id + ".png");
         getShoes(id)
         .then((data) => {
             const brandName = data[0].brand;

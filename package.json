@@ -4,6 +4,7 @@
   "description": "Web store",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "node --watch app.js"
   },
   "repository": {

@@ -1,21 +1,23 @@
 $(document).ready(function() {
-    if (!sessionStorage.getItem('account')) {
-        (async() => {
-            const res = await fetch("/account", {
-                method: 'GET'
-            });
-            if (!res.ok) {
-                return;
-            } else {
-                const data = await res.json();
-                $("#account").text(data.username);
-                sessionStorage.setItem('accountName', data.username);
-                sessionStorage.setItem('account', data.id);
-            }
-        }) ();
-    } else $("#account").text(sessionStorage.getItem('accountName'));
+    
+    if (sessionStorage.getItem('account')) $("#account").text(sessionStorage.getItem('accountName'));
+    $('.loginWindow .loginForm button').click(function() {
+        if (!sessionStorage.getItem('account')) {
+            (async() => {
+                const res = await fetch('/accounts', {
+                    method: 'GET'
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    $("#account").text(data.username);
+                    sessionStorage.setItem('accountName', data.username);
+                    sessionStorage.setItem('account', data.id);
+                }
+            }) ();
+        } else $("#account").text(sessionStorage.getItem('accountName'));
+    });
 
-    $("#top .shell #header #navigation ul li.account").click(function() {
+    $("#account").click(function() {
         if (sessionStorage.getItem('account')) {
             $(".logOutWindow").show();
         } else $(".loginWindow").show();
@@ -34,6 +36,7 @@ $(document).ready(function() {
     $(".logOutWindow .logOutPlace .action button.logOut").click(async function() {
         sessionStorage.removeItem('accountName');
         sessionStorage.removeItem('account');
+        $("#account").text('My Account');
         await fetch("/logout", {
             method: 'GET'
         });

@@ -1,547 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Nuke Store</title>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/buyWindowStyle.css" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="css/miniCartStyle.css" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="css/loginStyle.css" media="print" onload="this.media='all'" />
-<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script defer src="js/account.js"></script>
-<script defer src="js/tabs.js"></script>
-<script defer src="js/slide.js"></script>
-<script defer src="js/buyWindow.js"></script>
-<script defer src="js/miniCart.js"></script>
-</head>
-<body>
-<!-- Top -->
-<div id="top">
-  <div class="shell">
-    <!-- Header -->
-    <div id="header">
-      <h1 id="logo"><a>Urban Gear</a></h1>
-      <div id="navigation">
-        <ul>
-          <li><a>Home</a></li>
-          <li class="account"><a id="account">My Account</a></li>
-          <li class="last"><a>Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <!-- End Header -->
-    <!-- Slider -->
-    <div id="slider">
-      <div id="slider-holder">
-        <ul>
-          <li><a><img src="css/images/slide1.jpg" alt="" /></a></li>
-          <li><a><img src="css/images/slide2.jpg" alt="" /></a></li>
-          <li><a><img src="css/images/slide1.jpg" alt="" /></a></li>
-          <li><a><img src="css/images/slide2.jpg" alt="" /></a></li>
-          <li><a><img src="css/images/slide1.jpg" alt="" /></a></li>
-          <li><a><img src="css/images/slide2.jpg" alt="" /></a></li>
-        </ul>
-      </div>
-      <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
-    </div>
-    <!-- End Slider -->
-    <!-- login Window-->
-    <form class="loginWindow" action="/login" method="post" style="display:none">
-      <div class="loginForm">
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        <button type="submit">Login</button>
-      </div>
-      <div class="action" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="signUp"><a>Sign up</a></span>
-      </div>
-    </form>
-    <!-- login Window-->
-    <!-- log out Window-->
-    <div class="logOutWindow" style="display: none">
-      <div class="logOutPlace">
-        <h3>You're already logged in</h3>
-        <div class="action">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <button type="button" class="update">Update</button>
-          <button class="logOut"><a>Log out</a></button>
-        </div>
-      </div>
-    </div>
-    <!-- log out Window-->    
-    <!--Sign up Window-->
-    <form class="signUpWindow" action="/register" method="post" style="display:none">
-      <div class="signUpForm">
-        <label class="username" for="username"><b>Username</b></label>
-        <input class="username" type="text" placeholder="Enter Username" name="username" required>
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter your email" name="email" required>
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter your name" name="name" required>
-        <label for="phone"><b>Phone number</b></label>
-        <input type="number" placeholder="Enter your phone number" name="phone" required>
-        <label for="address"><b>Address</b></label>
-        <input type="text" placeholder="Enter your address" name="address" required>
-        <label for="credit"><b>Credit Number</b></label>
-        <input type="number" placeholder="Enter your credit number" name="credit" required>
-      </div>
-      <div class="action" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
-    </form>
-    <!--Sign up Window-->
-  </div>
-</div>
-<!-- Top -->
-<!-- Main -->
-<div id="main">
-  <div class="shell">
-    <!-- Search, etc -->
-    <div class="options">
-      <!-- <div class="search">
-        <form action="#" method="post">
-          <span class="field">
-          <input type="text" class="blink" value="SEARCH" title="search" />
-          </span>
-          <input type="text" class="search-submit" value="GO" />
-        </form>
-      </div> -->
-      <!-- <span class="left"><a>Advanced Search</a></span> -->
-      <div class="right">
-        <span class="cart"> <a class="cart-ico">&nbsp;</a> <strong class="price">0 USD</strong> </span> 
-        <span class="left more-links"> <a class="checkOut" href="checkOut.html">Checkout</a> </span> 
-      </div>
-    </div>
-    <!-- End Search, etc -->
-    <!--mini cart-->
-    <div class="miniCart" style="display:none">
-      <form class="cart">
-        <button type="button" class="cartCloser">X</button>
-        <ul style="display:none"></ul>
-        <div class="cartFooter">
-          <p>Total: <span></span></p>
-          <a class="checkOut" href="checkOut.html">Check Out</a>
-        </div>
-      </form>
-    </div>
-    <!--mini cart-->
-    <!-- detail buying window -->
-    <div class="buyingWindow" style="display:none">
-      <div class="details">
-        <img>
-        <div class="description">
-          <p>Name: <span></span></p>
-          <p>Brand: <span></span></p>
-          <p>Edition: <span></span></p>
-          <p>Color: </p>
-          <ul class="colorChoose">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Nuke Store</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+	<!-- header section start -->
+	<div class="header_section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="logo"><a href="#"><img src="images/logo.png"></a></div>
+				</div>
+				<div class="col-sm-9">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                           <a class="nav-item nav-link" href="index.html">Home</a>
+                           <a class="nav-item nav-link" href="products.html">Products</a>
+                           <a class="nav-item nav-link" id="account">My Account</a> 
+                           <a class="nav-item nav-link" href="contact.html">Contact</a>
+                           <a class="nav-item nav-link last" href="#"><img src="images/search_icon.png"></a>
+                           <a class="nav-item nav-link last" href="contact.html"><img src="images/shop_icon.png"></a>
+                        </div>
+                    </div>
+                    </nav>
+				</div>
+			</div>
+		</div>
+		<div class="banner_section">
+			<div class="container-fluid">
+				<section class="slide-wrapper">
+    <div class="container-fluid">
+	    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
 
-          </ul>
-          <p>Size: </p> 
-          <ul class="sizeChoose">
-            <li class="choosen">9 US</li>
-            <li>10 US</li>
-            <li>11 US</li>
-          </ul>
-          <p class="price">Price: <span></span> USD</p>
-          <div class="quantity"> 
-            <div class="minus"></div> 
-            <div class="value">1</div> 
-            <div class="plus"></div>
-          </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+					<div class="col-sm-2 padding_0">
+						<p class="mens_taital">Men Shoes</p>
+						<div class="page_no">0/2</div>
+						<p class="mens_taital_2">Men Shoes</p>
+					</div>
+					<div class="col-sm-5">
+						<div class="banner_taital">
+							<h1 class="banner_text">New Running Shoes </h1>
+							<h1 class="mens_text"><strong>Men's Like Plex</strong></h1>
+							<p class="lorem_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<button class="buy_bt">Buy Now</button>
+							<button class="more_bt">See More</button>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="shoes_img"><img src="images/running-shoes.png"></div>
+					</div>
+				</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+					<div class="col-sm-2 padding_0">
+						<p class="mens_taital">Men Shoes</p>
+						<div class="page_no">0/2</div>
+						<p class="mens_taital_2">Men Shoes</p>
+					</div>
+					<div class="col-sm-5">
+						<div class="banner_taital">
+							<h1 class="banner_text">New Running Shoes </h1>
+							<h1 class="mens_text"><strong>Men's Like Plex</strong></h1>
+							<p class="lorem_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<button class="buy_bt">Buy Now</button>
+							<button class="more_bt">See More</button>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="shoes_img"><img src="images/running-shoes.png"></div>
+					</div>
+				</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+					<div class="col-sm-2 padding_0">
+						<p class="mens_taital">Men Shoes</p>
+						<div class="page_no">0/2</div>
+						<p class="mens_taital_2">Men Shoes</p>
+					</div>
+					<div class="col-sm-5">
+						<div class="banner_taital">
+							<h1 class="banner_text">New Running Shoes </h1>
+							<h1 class="mens_text"><strong>Men's Like Plex</strong></h1>
+							<p class="lorem_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<button class="buy_bt">Buy Now</button>
+							<button class="more_bt">See More</button>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="shoes_img"><img src="images/running-shoes.png"></div>
+					</div>
+				</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+					<div class="col-sm-2 padding_0">
+						<p class="mens_taital">Men Shoes</p>
+						<div class="page_no">0/2</div>
+						<p class="mens_taital_2">Men Shoes</p>
+					</div>
+					<div class="col-sm-5">
+						<div class="banner_taital">
+							<h1 class="banner_text">New Running Shoes </h1>
+							<h1 class="mens_text"><strong>Men's Like Plex</strong></h1>
+							<p class="lorem_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<button class="buy_bt">Buy Now</button>
+							<button class="more_bt">See More</button>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="shoes_img"><img src="images/running-shoes.png"></div>
+					</div>
+				</div>
+                </div>
+            </div>
         </div>
-        <div class="confirmButton">
-          <button>Put in cart</button>
-          <button>Cancel</button>
-        </div>
-        <div class="data" style="display: none">
-          <span class="id"></span>
-          <span class="singlePrice"></span>
-        </div>
-      </div>
     </div>
-    <!-- detail buying window -->
-    <!-- Content -->
-    <div id="content">
-      <!-- Tabs -->
-      <div class="tabs">
-        <ul>
-          <li><a class="active"><span>Casual Shoes</span></a></li>
-          <li><a><span>Basketball Shoes</span></a></li>
-          <li><a class="red"><span>Running Shoes</span></a></li>
-        </ul>
-      </div>
-      <!-- Tabs -->
-      <!-- Container -->
-      <div id="container">
-        <div class="tabbed">
-          <!-- First Tab Content -->
-          <div class="tab-content" style="display:block;">
-            <div class="items">
-              <div class="cl">&nbsp;</div>
-              <ul>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">82</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">81</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">73</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">83</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">85</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">86</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">87</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">96</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">97</span>
-                  </div>
-                </li>
-              </ul>
-              <div class="cl">&nbsp;</div>
-            </div>
-          </div>
-          <!-- End First Tab Content -->
-          <!-- Second Tab Content -->
-          <div class="tab-content" >
-            <div class="items">
-              <div class="cl">&nbsp;</div>
-              <ul>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">70</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">71</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">72</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">76</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">77</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">78</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">79</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">80</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">81</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">82</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">84</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">88</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">90</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">91</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">92</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">94</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">98</span>
-                  </div>
-                </li>
-              </ul>
-              <div class="cl">&nbsp;</div>
-            </div>
-          </div>
-          <!-- End Second Tab Content -->
-          <!-- Third Tab Content -->
-          <div class="tab-content" >
-            <div class="items">
-              <div class="cl">&nbsp;</div>
-              <ul>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">74</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">75</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">89</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">99</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a><img loading="lazy"  alt="" /></a> </div>
-                  <p class="info"></p>
-                  <p class="price"></p>
-                  <div class="color" style="display: none"> </div>
-                  <div class="quantityInStock" style="display: none"></div>
-                  <div class="data" style="display: none">
-                    <span class="id">100</span>
-                  </div>
-                </li>
-              </ul>
-              <div class="cl">&nbsp;</div>
-            </div>
-          </div>
-          <!-- End Third Tab Content -->
-        </div>
-        <!-- Brands -->
-        <div class="brands">
-          <h3>Brands</h3>
-          <div class="logos"> <a><img src="css/images/logo1.gif" alt="" /></a> <a><img src="css/images/logo2.gif" alt="" /></a> <a><img src="css/images/logo3.gif" alt="" /></a> <a><img src="css/images/logo4.gif" alt="" /></a> <a><img src="css/images/logo5.gif" alt="" /></a> </div>
-        </div>
-        <!-- End Brands -->
-        <!-- Footer -->
-        <div id="footer">
-          <div class="left"> <a>Home</a> <span>|</span> <a>Support</a> <span>|</span> <a>My Account</a> <span>|</span> <a>The Store</a> <span>|</span> <a>Contact</a> </div>
-          <div class="right"> &copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a> </div>
-        </div>
-        <!-- End Footer -->
-      </div>
-      <!-- End Container -->
+</section>			
+			</div>
+		</div>
+	</div>
+	<!-- header section end -->
+	<!-- new collection section start -->
+    <div class="layout_padding collection_section">
+    	<div class="container">
+    	    <h1 class="new_text"><strong>New  Collection</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	    <div class="collection_section_2">
+    	    	<div class="row">
+    	    		<div class="col-md-6">
+    	    			<div class="about-img">
+    	    				<button class="new_bt">New</button>
+    	    				<div class="shoes-img"><img src="images/shoes-img1.png"></div>
+    	    				<p class="sport_text">Men Sports</p>
+    	    				<div class="dolar_text">$<strong style="color: #f12a47;">90</strong> </div>
+    	    				<div class="star_icon">
+    	    					<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    	    				</div>
+    	    			</div>
+    	    			<button class="seemore_bt">See More</button>
+    	    		</div>
+    	    		<div class="col-md-6">
+    	    			<div class="about-img2">
+    	    				<div class="shoes-img2"><img src="images/shoes-img2.png"></div>
+    	    				<p class="sport_text">Men Sports</p>
+    	    				<div class="dolar_text">$<strong style="color: #f12a47;">90</strong> </div>
+    	    				<div class="star_icon">
+    	    					<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    	    				</div>
+    	    			</div>
+    	    		</div>
+    	    	</div>
+    	    </div>
+    	</div>
     </div>
-    <!-- End Content -->
-  </div>
-</div>
-<!-- End Main -->
-</body>
+    <div class="collection_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>Racing Boots</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+    </div>
+    <div class="collectipn_section_3 layuot_padding">
+    	<div class="container">
+    		<div class="racing_shoes">
+    			<div class="row">
+    				<div class="col-md-8">
+    					<div class="shoes-img3"><img src="images/shoes-img3.png"></div>
+    				</div>
+    				<div class="col-md-4">
+    					<div class="sale_text"><strong>Sale <br><span style="color: #0a0506;">JOGING</span> <br>SHOES</strong></div>
+    					<div class="number_text"><strong>$ <span style="color: #0a0506">100</span></strong></div>
+    					<button class="seemore">See More</button>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="collection_section layout_padding">
+    	<div class="container">
+    		<h1 class="new_text"><strong>New Arrivals Products</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+    </div>
+	<!-- new collection section end -->
+	<!-- New Arrivals section start -->
+    <div class="layout_padding gallery_section">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">Best Shoes </p>
+    					<div class="shoes_icon"><img src="images/shoes-img4.png"></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">60</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">Best Shoes </p>
+    					<div class="shoes_icon"><img src="images/shoes-img5.png"></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">400</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">Best Shoes </p>
+    					<div class="shoes_icon"><img src="images/shoes-img6.png"></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">50</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">Sports Shoes</p>
+    					<div class="shoes_icon"><img src="images/shoes-img7.png"></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">70</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">Sports Shoes</p>
+    					<div class="shoes_icon"><img src="images/shoes-img8.png"></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">100</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">Sports Shoes</p>
+    					<div class="shoes_icon"><img src="images/shoes-img9.png"></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<ul>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    						<li><a href="#"><img src="images/star-icon.png"></a></li>
+    	    					</ul>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">90</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="buy_now_bt">
+    			<button class="buy_text">Buy Now</button>
+    		</div>
+    	</div>
+    </div>
+   	<!-- New Arrivals section end -->
+   	<!-- contact section start -->
+    <div class="layout_padding contact_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>Contact Now</strong></h1>
+    	</div>
+    	<div class="container-fluid ram">
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="email_box">
+                    <div class="input_main">
+                       <div class="container">
+                          <form action="/action_page.php">
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Name" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Phone Numbar" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Email" name="Email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                            </div>
+                          </form>   
+                       </div> 
+                       <div class="send_btn">
+                        <button class="main_bt">Send</button>
+                       </div>                   
+                    </div>
+    		</div>
+    			</div>
+    			<div class="col-md-6">
+    				<div class="shop_banner">
+    					<div class="our_shop">
+    						<button class="out_shop_bt">Our Shop</button>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+   	<!-- contact section end -->
+	<!-- section footer start -->
+    <div class="section_footer">
+    	<div class="container">
+    		<div class="mail_section">
+    			<div class="row">
+    				<div class="col-sm-6 col-lg-2">
+    					<div><a href="#"><img src="images/footer-logo.png"></a></div>
+    				</div>
+    				<div class="col-sm-6 col-lg-2">
+    					<div class="footer-logo"><img src="images/phone-icon.png"><span class="map_text">(71) 1234567890</span></div>
+    				</div>
+    				<div class="col-sm-6 col-lg-3">
+    					<div class="footer-logo"><img src="images/email-icon.png"><span class="map_text">Demo@gmail.com</span></div>
+    				</div>
+    				<div class="col-sm-6 col-lg-3">
+    					<div class="social_icon">
+    						<ul>
+    							<li><a href="#"><img src="images/fb-icon.png"></a></li>
+    							<li><a href="#"><img src="images/twitter-icon.png"></a></li>
+    							<li><a href="#"><img src="images/in-icon.png"></a></li>
+    							<li><a href="#"><img src="images/google-icon.png"></a></li>
+    						</ul>
+    					</div>
+    				</div>
+    				<div class="col-sm-2"></div>
+    			</div>
+    	    </div> 
+    	    <div class="footer_section_2">
+		        <div class="row">
+    		        <div class="col-sm-4 col-lg-2">
+    		        	<p class="dummy_text"> ipsum dolor sit amet, consectetur ipsum dolor sit amet, consectetur  ipsum dolor sit amet,</p>
+    		        </div>
+    		        <div class="col-sm-4 col-lg-2">
+    		        	<h2 class="shop_text">Address </h2>
+    		        	<div class="image-icon"><img src="images/map-icon.png"><span class="pet_text">No 40 Baria Sreet 15/2 NewYork City, NY, United States.</span></div>
+    		        </div>
+    		        <div class="col-sm-4 col-md-6 col-lg-3">
+    				    <h2 class="shop_text">Our Company </h2>
+    				    <div class="delivery_text">
+    				    	<ul>
+    				    		<li>Delivery</li>
+    				    		<li>Legal Notice</li>
+    				    		<li>About us</li>
+    				    		<li>Secure payment</li>
+    				    		<li>Contact us</li>
+    				    	</ul>
+    				    </div>
+    		        </div>
+    			<div class="col-sm-6 col-lg-3">
+    				<h2 class="adderess_text">Products</h2>
+    				<div class="delivery_text">
+    				    	<ul>
+    				    		<li>Prices drop</li>
+    				    		<li>New products</li>
+    				    		<li>Best sales</li>
+    				    		<li>Contact us</li>
+    				    		<li>Sitemap</li>
+    				    	</ul>
+    				    </div>
+    			</div>
+    			<div class="col-sm-6 col-lg-2">
+    				<h2 class="adderess_text">Newsletter</h2>
+    				<div class="form-group">
+                        <input type="text" class="enter_email" placeholder="Enter Your email" name="Name">
+                    </div>
+                    <button class="subscribr_bt">Subscribe</button>
+    			</div>
+    			</div>
+    	        </div> 
+	        </div>
+    	</div>
+    </div>
+	<!-- section footer end -->
+	<div class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></div>
+
+
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         
+$('#myCarousel').carousel({
+            interval: false
+        });
+
+        //scroll slides on swipe for touch enabled devices
+
+        $("#myCarousel").on("touchstart", function(event){
+
+            var yClick = event.originalEvent.touches[0].pageY;
+            $(this).one("touchmove", function(event){
+
+                var yMove = event.originalEvent.touches[0].pageY;
+                if( Math.floor(yClick - yMove) > 1 ){
+                    $(".carousel").carousel('next');
+                }
+                else if( Math.floor(yClick - yMove) < -1 ){
+                    $(".carousel").carousel('prev');
+                }
+            });
+            $(".carousel").on("touchend", function(){
+                $(this).off("touchmove");
+            });
+        });})
+      </script> 
+   </body>
 </html>
