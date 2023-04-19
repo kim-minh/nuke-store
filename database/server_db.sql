@@ -363,7 +363,7 @@ LOCK TABLES `shoes` WRITE;
 
 INSERT INTO `shoes` (`shoesID`, `name`, `brand`, `price`, `type`)
 VALUES
-	(61,'Under Armour Drive 4','Under Armour',100,'Lifestyle'),
+	(61,'Under Armour Drive','Under Armour',100,'Lifestyle'),
 	(62,'Nike Waffle','Nike',120,'Lifestyle'),
 	(63,'Stan Smith','Adidas',100,'Lifestyle'),
 	(64,'Yeezy 700','Adidas',200,'Lifestyle'),
