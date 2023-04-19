@@ -1,2 +1,2 @@
 # nuke-store
-![Alt text](public/images/database_picture.png)
+![Alt text](database/database_picture.png)
