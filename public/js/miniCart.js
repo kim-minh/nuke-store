@@ -76,8 +76,8 @@ $(document).ready(function() {
 });
 
 function isEmpty() {
-    if(!$(".miniCart .cart ul li")) {
-        $(".cart .cartFooter").html('<p class="empty">Empty cart</P>');
+    if(!$(".miniCart .cart ul li").length) {
+        $(".cart .cartFooter").html('<p class="empty">Empty</P>');
         $(".miniCart .cart ul").hide();
         return true;
     }
