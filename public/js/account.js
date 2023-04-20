@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   const logOutWindow = '<div class="logOutWindow" style="display: none">\
   <div class="logOutPlace">\
-    <h3>You r logged in silly</h3>\
+    <h3>You\'re already logged in</h3>\
     <div class="action">\
       <button type="button" class="cancelbtn">Cancel</button>\
       <button type="button" class="update">Update</button>\
@@ -53,6 +53,7 @@ $(document).ready(function() {
     if (sessionStorage.getItem('account')) $("#account").text(sessionStorage.getItem('accountName'));
     $('.loginWindow .loginForm button').click(function() {
         if (!sessionStorage.getItem('account')) {
+          console.log("data");
             (async() => {
                 const res = await fetch('/accounts', {
                     method: 'GET'

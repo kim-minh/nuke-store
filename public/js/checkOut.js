@@ -30,12 +30,14 @@ $(document).ready(function() {
         let quantity = Number($(this).siblings('div.value').eq(0).text());
         const index = $('.minus').index(this);
         if(quantity !== 1) {
-          let price = Number($(this).parents('tr').eq(0).find('span.price').text());
-          price = data[index].price * quantity;
-          $(this).parents('tr').eq(0).find('span.price').text(price);
+          //Update quantity
           --quantity;
           data[index].quantity = quantity;
           $(this).siblings('div.value').eq(0).text(quantity);
+          //Update price
+          let price = Number($(this).parents('tr').eq(0).find('span.price').text());
+          price = data[index].price * quantity;
+          $(this).parents('tr').eq(0).find('span.price').text(price);
           updatePrice();
           checkStock();
         }
@@ -45,12 +47,14 @@ $(document).ready(function() {
       let quantity = Number($(this).siblings('div.value').eq(0).text());
       const index = $('.plus').index(this);
       if (quantity < data[index].quantityInStock) {
-        let price = Number($(this).parents('tr').eq(0).find('span.price').text());
-        price = data[index].price * quantity;
-        $(this).parents('tr').eq(0).find('span.price').text(price);
+        //Update quantity
         ++quantity;
         data[index].quantity = quantity;
         $(this).siblings('div.value').eq(0).text(quantity);
+        //Update price
+        let price = Number($(this).parents('tr').eq(0).find('span.price').text());
+        price = data[index].price * quantity;
+        $(this).parents('tr').eq(0).find('span.price').text(price);
         updatePrice();
         checkStock();
       } else {

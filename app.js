@@ -45,7 +45,6 @@ app.get('/accountInfo/', (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if(err) throw err;
-    res.redirect('back');
   });
   res.status(300).send({status: 'sucess'});
 })
@@ -208,7 +207,7 @@ app.post('/order', function(req, res) {
   }
   
   const sql1 = "INSERT INTO orders (customerNumber, orderDate, requiredDate) VALUES (?, CURDATE(), COALESCE(?, CURDATE() + 7))";
-  const sql2 = "INSERT INTO orderdetails (orderNumber, shoesPropety, quantityOrdered) VALUES (LAST_INSERT_ID(), ?)";
+  const sql2 = "INSERT INTO orderdetails (orderNumber, shoesProperty, quantityOrdered) VALUES (LAST_INSERT_ID(), ?)";
   const sql3 = "UPDATE properties SET quantityInStock = quantityInStock - ? WHERE id = ? AND quantityInStock > 0";
   const sql = "INSERT INTO payments (customerNumber, paymentDate, amount) VALUES(?, CURDATE(), ?)";
 
@@ -219,7 +218,7 @@ app.post('/order', function(req, res) {
     })
     .then(() => {
       for (const key in data.shoes) {
-        db.query(sql2, [[data.shoes[key].id, data.shoes[key].quantity]], function(err) {
+        db.query(sql2, [[data.shoes[key].ID, data.shoes[key].quantity]], function(err) {
           if(err) throw err;
         });
         db.query(sql3, [data.shoes[key].quantity, data.shoes[key].id], function(err) {
