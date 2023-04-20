@@ -17,7 +17,8 @@ $(document).ready(function() {
         const quantity = $(".buyingWindow .details .description div.quantity div.value").text();
         const color = $(".buyingWindow .details .description ul.colorChoose li.choosen").text();
         const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text().substr(0, 2);
-        const singlePrice = +$(".buyingWindow .details .data").find("span.singlePrice").text();
+        const singlePrice = +$(".buyingWindow .details .description .price span").text();
+        console.log(singlePrice);
 
         let duplicate = false;
         $(".miniCart .cart ul li").each(function() {
