@@ -50,23 +50,21 @@ $(document).ready(function() {
 
     $(document.body).append(loginWindow, logOutWindow, signUpWindow);
     
-    if (sessionStorage.getItem('account')) $("#account").text(sessionStorage.getItem('accountName'));
-    $('.loginWindow .loginForm button').click(function() {
-        if (!sessionStorage.getItem('account')) {
-          console.log("data");
-            (async() => {
-                const res = await fetch('/accounts', {
-                    method: 'GET'
-                });
-                if (res.ok) {
-                    const data = await res.json();
-                    $("#account").text(data.username);
-                    sessionStorage.setItem('accountName', data.username);
-                    sessionStorage.setItem('account', data.id);
-                }
-            }) ();
-        } else $("#account").text(sessionStorage.getItem('accountName'));
-    });
+    if (sessionStorage.getItem('account')) {
+      $("#account").text(sessionStorage.getItem('accountName'));
+    } else {
+      (async() => {
+        const res = await fetch('/accounts', {
+            method: 'GET'
+        });
+        if (res.ok) {
+            const data = await res.json();
+            $("#account").text(data.username);
+            sessionStorage.setItem('accountName', data.username);
+            sessionStorage.setItem('account', data.id);
+        }
+    }) ();
+    }
 
     $("#account").click(function() {
         if (sessionStorage.getItem('account')) {
