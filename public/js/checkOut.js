@@ -67,13 +67,18 @@ $(document).ready(function() {
         alert("Out of stock!");
       } else if(!sessionStorage.getItem('account')) {
         alert("Please log in to continue");
+        $('#account').click();
       } else {
         const order = {
           shoes: data,
           amount: $('#amount').text(),
           requiredDate: $('#requiredDate').val()
         };
-        placeOrder(order);
+        placeOrder(order)
+        alert("Successfully ordered!");
+        window.location.replace('/products.html');
+        $(".miniCart .cart ul").empty();
+        sessionStorage.removeItem('shoesData');
       }
     });
   });
