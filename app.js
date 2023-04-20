@@ -33,19 +33,29 @@ app.get('/accounts', (req, res) => {
 app.get('/accountInfo/', (req, res) => {
   if (req.session.loggedin) {
     const sql = "SELECT name, phoneNumber, address FROM customers WHERE customerNumber = ?";
-    db.query(sql, [req.session.accountID], function(err, result) {
-      if (err) throw err;
-      res.json(result[0]);
-    });
+    try {
+      db.query(sql, [req.session.accountID], function(err, result) {
+        if (err) throw err;
+        res.json(result[0]);
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(400).send();
+    }
   } else {
     res.status(400).send();
   }
 })
 
 app.get('/logout', (req, res) => {
+  try {
   req.session.destroy(err => {
     if(err) throw err;
   });
+  } catch (err) {
+    console.log(err);
+    res.status(400).send();
+  }
   res.status(300).send({status: 'sucess'});
 })
 
@@ -183,6 +193,7 @@ app.post('/login', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   if (username && password) {
+    try {
 		db.query('SELECT customerNumber, password FROM accounts WHERE username = ?', username, function(err, result) {
 			if (err) throw err;
 			if (result.length > 0 && bcrypt.compareSync(password, result[0].password)) {
@@ -194,6 +205,9 @@ app.post('/login', (req, res) => {
 				res.send('Incorrect Username and/or Password!');
 			}			
 		});
+    } catch (err) {
+      console.log(err);
+    }
 	} else {
 		res.send('Please enter Username and Password!');
 		res.end();
@@ -226,11 +240,16 @@ app.post('/order', function(req, res) {
         })
       }
     })
+    .catch (err => console.log(err));
   }) ();
 
-  db.query(sql, [req.session.accountID, data.amount], function(err) {
-    if(err) throw err;
-  })
+  try {
+    db.query(sql, [req.session.accountID, data.amount], function(err) {
+      if(err) throw err;
+    })
+  } catch (err) {
+    console.log(err);
+  }
 })
   
 // Server setup
